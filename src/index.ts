@@ -13,4 +13,6 @@ myTodoCollection.addTodo("잠자기");
 myTodoCollection.addTodo("책읽기");
 
 console.log(`${myTodoCollection.userName}`);
-myTodoCollection.todoItems.forEach( item => item.printDetails() );
+myTodoCollection.getTodoItems().forEach( item => item.printDetails() );
+console.log('====================');
+myTodoCollection.getTodoItems(false).forEach( item => item.printDetails() );
