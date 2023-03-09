@@ -1,8 +1,10 @@
-import TodoItem from "./TodoItem";
+import { ItemCounts } from "../model/itemCounts";
+import TodoItem from "../model/TodoItem";
 
 
 class TodoCollection {
   private nextId: number = 1;
+
   private itemMap: Map<number, TodoItem>; // Generic Type 
 
   /**
@@ -58,6 +60,17 @@ class TodoCollection {
         this.itemMap.delete(item.id);
       }
     })
+  }
+
+  /**
+   * 
+   * @returns 
+   */
+  getItemCounts() : ItemCounts {
+    return {
+      total: this.itemMap.size,
+      incomplete: this.getTodoItems(false).length
+    }
   }
 
 
